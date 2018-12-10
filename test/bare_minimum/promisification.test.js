@@ -3,7 +3,7 @@ var expect = require('chai').expect;
 var Promise = require('bluebird');
 
 describe('Promisification', function() {
-  var promisificaion = require('../../exercises/bare_minimum/promisification.js');
+    var promisificaion = require('../../exercises/bare_minimum/promisification.js');
 
   describe('getGitHubProfileAsync', function() {
     var getGitHubProfileAsync = promisificaion.getGitHubProfileAsync;
@@ -78,7 +78,7 @@ describe('Promisification', function() {
   });
 
   describe('readFileAndMakeItFunnyAsync', function() {
-    var readFileAndMakeItFunnyAsync = promisificaion.readFileAndMakeItFunnyAsync;
+     var readFileAndMakeItFunnyAsync = promisificaion.readFileAndMakeItFunnyAsync;
 
     it('should return a promise', function() {
       // Must return a Bluebird promise. ES6 promise won't work here
@@ -91,6 +91,7 @@ describe('Promisification', function() {
           funnyFile.split('\n').forEach(function(line) {
             expect(line).to.contain('lol');
           });
+          console.log('Inside then block');
           done();
         })
         .catch(done);
@@ -99,6 +100,7 @@ describe('Promisification', function() {
     it('should make any errors available in the `catch` block', function(done) {
       readFileAndMakeItFunnyAsync(__dirname + '/../files/nonexistent_file.txt')
         .catch(function(err) {
+          //console.log('----------------', err);
           expect(err.code).to.equal('ENOENT');
           done();
         });

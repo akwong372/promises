@@ -23,14 +23,6 @@ var pluckFirstLineFromFileAsync = function(filePath) {
     });
   });
 
-  func.then(function (value) {
-    return value;
-  });
-
-  func.catch(function (error) {
-    return error;
-  });
-
   return func;
 };
 
@@ -42,17 +34,14 @@ var getStatusCodeAsync = function(url) {
       if (err) {
         reject(err);
       } else {
+
         resolve(content.statusCode);
       }
     });
   });
-  func.then(function(value) {
-    return value;
-  });
-  func.catch(function(error) {
-    return error;
-  });
+
   return func;
+
 };
 
 // Export these functions so we can test them and reuse them in later exercises
