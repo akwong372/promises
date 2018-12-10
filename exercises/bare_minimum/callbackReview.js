@@ -13,11 +13,11 @@ var pluckFirstLineFromFile = function (filePath, func) {
       func(err);
     } else {
       //console.log(content.split(/\r/)[0]);
-      func(err, content.split(/\r/)[0]);
+      func(err, content.split(/\n/)[0]);
     }
   });
-  
-  
+
+
 };
 
 // This function should retrieve the status code of a GET request to `url`
@@ -29,7 +29,7 @@ var getStatusCode = function (url, func) {
     } else {
       func(err, content.statusCode);
     }
-  });  
+  });
 };
 
 // Export these functions so we can test them and reuse them in later exercises
