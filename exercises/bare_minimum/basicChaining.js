@@ -11,14 +11,15 @@
 var fs = require('fs');
 var Promise = require('bluebird');
 Promise.promisifyAll(fs);
-
+var promiseConstructor = require('./promiseConstructor.js')
 
 var fetchProfileAndWriteToFile = function(readFilePath, writeFilePath) {
   // TODO
-  return fs.readFileSync(readFilePath, 'utf8')
-    .then(function(userData) {
-      console.log(userData);
+  return promiseConstructor.pluckFirstLineFromFileAsync(readFilePath)
+    .then(function(data) {
+      console.log(data);
     })
+
 
 };
 
