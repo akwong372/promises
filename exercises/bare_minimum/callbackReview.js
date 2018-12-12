@@ -13,7 +13,7 @@ var pluckFirstLineFromFile = function (filePath, func) {
       func(err);
     } else {
       //console.log(content.split(/\r/)[0]);
-      func(err, content.split(/\r/)[0]);
+      func(err, content.split(/\n/)[0]);
     }
   });
 

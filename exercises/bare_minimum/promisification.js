@@ -10,6 +10,7 @@ var Promise = require('bluebird');
 var fs = require('fs');
 Promise.promisifyAll(fs);
 
+
 // (1) Asyncronous HTTP request
 var getGitHubProfile = function(user, callback) {
   var options = {
